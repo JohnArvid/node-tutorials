@@ -47,7 +47,7 @@ app.put('tasks/:id', (req, res) => {
 	const updatedTask = req.body;
 
 	// Find task in todolist
-	const = taskIndex = todolist.findIndex(item => item.id === taskId);
+	const taskIndex = todolist.findIndex(item => item.id === taskId);
 
 	if (taskIndex !== -1){
 		todolist[taskIndex] = { ...todolist[taskIndex], updatedTask};
@@ -69,5 +69,5 @@ app.delete('/tasks/:id', (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-	console.log(`Server is running at http://localhost:${}/`)
+	console.log(`Server is running at http://localhost:${PORT}/`)
 });
