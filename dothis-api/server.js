@@ -58,3 +58,16 @@ app.put('tasks/:id', (req, res) => {
 });
 
 // DELETE endpoint to delete a task 
+app.delete('/tasks/:id', (req, res) => {
+	const taskId = parseInt(req.params.id);
+
+	// Filter out item to be deleted
+	todolist = todolist.filter(item => item.id !== taskId);
+
+	res.json({ message: 'Task deleted successfully' });
+});
+
+// Start the server
+app.listen(PORT, () => {
+	console.log(`Server is running at http://localhost:${}/`)
+});
