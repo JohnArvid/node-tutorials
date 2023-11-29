@@ -56,3 +56,5 @@ app.put('tasks/:id', (req, res) => {
 		res.status(404).json({error: 'Task not found'});
 	}
 });
+
+// DELETE endpoint to delete a task 
