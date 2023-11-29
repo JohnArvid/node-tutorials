@@ -60,7 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (target.classList.contains('complete')) {
 			console.log(taskId);
 		}
-
+		// send PUT request to update task w taskid to completed: true
+		// disable complete button and add completed styles to task 
+		
 		// const taskInput = document.getElementById('newTask');
 		// const newTask = { task : taskInput.value };
 
