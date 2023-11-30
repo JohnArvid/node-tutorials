@@ -1,10 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+
+	const todoList = document.getElementById('todoList');
+
 	// Function to fetch and display tasks
 	function fetchTasks() {
 		fetch('http://localhost:3000/tasks')
 			.then(response => response.json())
 			.then(tasks => {
-				const todoList =document.getElementById('todoList');
 				todoList.innerHTML = '';
 
 				tasks.forEach(task =>{
@@ -18,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						${task.task}
 						<input type='checkbox' class='delete' value=${task.id}>
 					</div>`;
-					console.log(tasks);
+					//console.log(tasks);
 					todoList.appendChild(listItem);
 
 
@@ -55,19 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Event listener for completing tasks
 
-	document.addEventListener('click', function (event) {
-		// event.preventDefault();
+	todoList.addEventListener('change', function (event) {
 		const target = event.target;
-		const taskId = event.target.value;
+		const taskId = target.value;
 		if (target.classList.contains('complete')) {
-			console.log(taskId);
+			console.log('complete: ' + taskId );
 		// disable complete button and add completed styles to task 
 					
 
 			const updatedTask = {
 				id: taskId, 
 				task: document.getElementById('#task' + taskId).textContent.trim(),
-				completed: true
+				completed: true,
 			};
 
 			console.log(updatedTask);
@@ -86,6 +88,34 @@ document.addEventListener('DOMContentLoaded', () => {
 			.catch(error => console.error('Error updating task: ', error));
 		
 		}
+
+		if (target.classList.contains('delete')) {
+			console.log( 'delete: ' + taskId );
+
+			// Hide the element first 
+
+/*			const deletedTask = {
+				id: taskId, 
+				task: document.getElementById('#task' + taskId).textContent.trim(),
+				completed: true
+			};*/
+
+
+			fetch('http://localhost:3000/tasks/' + taskId, {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: null,
+			})
+			.then(response => response.json())
+			.then(() => {
+				fetchTasks(); // Refresh task list
+			})
+			.catch(error => console.error('Error deleting task: ', error));
+		
+		}
+		
 	});
 
 });
