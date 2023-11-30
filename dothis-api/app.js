@@ -64,12 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (target.classList.contains('complete')) {
 			console.log('complete: ' + taskId );
 		// disable complete button and add completed styles to task 
-					
+		let element = document.getElementById('#task' + taskId); 
 
 			const updatedTask = {
 				id: taskId, 
-				task: document.getElementById('#task' + taskId).textContent.trim(),
-				completed: true,
+				task: element.textContent.trim(),
+				completed: element.childNodes[1].checked,
 			};
 
 			console.log(updatedTask);

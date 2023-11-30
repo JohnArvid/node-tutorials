@@ -55,7 +55,9 @@ app.put('/tasks/:id', (req, res) => {
 	const taskIndex = todolist.findIndex(item => item.id === taskId);
 
 	if (taskIndex !== -1){
-		todolist[taskIndex] = updatedTask;
+		todolist[taskIndex].task = updatedTask.task;
+		todolist[taskIndex].completed = updatedTask.completed;
+
 		res.json(todolist[taskIndex]);
 	} else {
 		res.status(404).json({error: 'Task not found'});
