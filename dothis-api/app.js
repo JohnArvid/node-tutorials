@@ -9,16 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				tasks.forEach(task =>{
 					const listItem = document.createElement('li');
-					
-					listItem.textContent = task.task;
+					listItem.innerHTML = `
+					<div id=${"#task"+task.id}>
+						<input ${task.completed ? 'checked' : ''} 
+						type='checkbox' 
+						class='complete' 
+						value=${task.id}>
+						${task.task}
+						<input type='checkbox' class='delete' value=${task.id}>
+					</div>`;
+					console.log(tasks);
 					todoList.appendChild(listItem);
 
-					const completeButton = document.createElement('input');
-					completeButton.setAttribute('type', 'checkbox');
-					completeButton.classList.add('complete');
-					completeButton.setAttribute('value', task.id);
-					listItem.prepend(completeButton);
-					// add delete button 
 
 				});
 			})
@@ -59,28 +61,31 @@ document.addEventListener('DOMContentLoaded', () => {
 		const taskId = event.target.value;
 		if (target.classList.contains('complete')) {
 			console.log(taskId);
-		}
-		// send PUT request to update task w taskid to completed: true
 		// disable complete button and add completed styles to task 
-		
-		// const taskInput = document.getElementById('newTask');
-		// const newTask = { task : taskInput.value };
+					
 
-/*
-		fetch('http://localhost:3000/tasks/:id', {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(newTask),
-		})
-		.then(response => response.json())
-		.then(() => {
-			taskInput.value = '';
-			fetchTasks(); // Refresh task list
-		})
-		.catch(error => console.error('Error adding task: ', error));
-*/
+			const updatedTask = {
+				id: taskId, 
+				task: document.getElementById('#task' + taskId).textContent.trim(),
+				completed: true
+			};
+
+			console.log(updatedTask);
+
+			fetch('http://localhost:3000/tasks/' + taskId, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(updatedTask),
+			})
+			.then(response => response.json())
+			.then(() => {
+				fetchTasks(); // Refresh task list
+			})
+			.catch(error => console.error('Error updating task: ', error));
+		
+		}
 	});
 
 });
