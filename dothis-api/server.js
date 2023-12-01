@@ -40,6 +40,7 @@ app.get('/tasks/:id', (req, res) => {
 // POST endpoint to create a new task
 app.post('/tasks', (req, res) => {
 	const newTask = req.body;
+	// create array of ids and find max and +1 for new id
 	newTask.id = todolist.length + 1;
 	newTask.completed = false;
 	todolist.push(newTask);
