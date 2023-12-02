@@ -31,7 +31,8 @@ body, input {
 
 #root{
 	margin: 0 auto;
-	padding: 2% 10%;
+	padding: 2% 10%;	
+    width: fit-content;
 }
 
 h1 {
@@ -41,6 +42,12 @@ h1 {
 
 #todoList{
 	padding-inline-start: 0;
+}
+
+.task {
+	padding: 3% 0%;	
+	display: flex;
+	justify-content: flex-start;
 }
 
 li {
@@ -53,6 +60,7 @@ input[type='text'], input[name='addTask']:focus {
 	border: none;
 	background: var(--color);
 	color: var(--bg-color);
+	width: 100%;
 }
 
 input[type='checkbox'] {
@@ -63,10 +71,12 @@ input[type='checkbox'] {
 }
 
 input.delete {
+	margin-left: auto;
     background: transparent url(icons/trash-solid.svg) no-repeat 0 50%;
 }
 
 input.complete {
+	padding-right: 2em;
     background: transparent url(icons/circle-regular.svg) no-repeat 0 50%;
 }
 
@@ -74,7 +84,7 @@ input.complete:checked {
     background: transparent url(icons/circle-check-solid.svg) no-repeat 0 50%;
 }
 
-div.completedTask {
+.completedTask {
 	color: var(--orange);
 	text-decoration: line-through;
 }

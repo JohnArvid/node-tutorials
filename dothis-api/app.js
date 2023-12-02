@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				tasks.forEach(task =>{
 					const listItem = document.createElement('li');
 					listItem.innerHTML = `
-					<div id=${'#task'+task.id} class=${task.completed ? 'completedTask' : ''}>
+					<div id=${'#task'+task.id} class= ${task.completed ? "completedTask task" : ''}>
 						<input ${task.completed ? 'checked' : ''} 
 						type='checkbox' 
 						class='complete' 
