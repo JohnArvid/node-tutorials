@@ -1,3 +1,11 @@
+:root {
+	--bg-color: #0a0e0b;
+	--color: #e7d9a4;
+	--pink: #c73b45;
+	--red: #d53e29;
+	--orange: #ca6727;
+}
+
 html {
 	background: #333;
 	color: #eee;
