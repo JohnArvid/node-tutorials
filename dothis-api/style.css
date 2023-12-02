@@ -25,7 +25,7 @@ span{
 	color: var(--orange);
 }
 
-body {
+body, input {
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -55,10 +55,26 @@ input[type='text'], input[name='addTask']:focus {
 	color: var(--bg-color);
 }
 
-input.delete{
+input[type='checkbox'] {
 	margin-bottom: 0;
     appearance: none;
     width: 1.2em;
     height: 1.2em;
-    background: transparent url(trash-solid.svg) no-repeat 0 50%;
+}
+
+input.delete {
+    background: transparent url(icons/trash-solid.svg) no-repeat 0 50%;
+}
+
+input.complete {
+    background: transparent url(icons/circle-regular.svg) no-repeat 0 50%;
+}
+
+input.complete:checked {
+    background: transparent url(icons/circle-check-solid.svg) no-repeat 0 50%;
+}
+
+div.completedTask {
+	color: var(--orange);
+	text-decoration: line-through;
 }

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				tasks.forEach(task =>{
 					const listItem = document.createElement('li');
 					listItem.innerHTML = `
-					<div id=${"#task"+task.id}>
+					<div id=${'#task'+task.id} class=${task.completed ? 'completedTask' : ''}>
 						<input ${task.completed ? 'checked' : ''} 
 						type='checkbox' 
 						class='complete' 
@@ -61,10 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	todoList.addEventListener('change', function (event) {
 		const target = event.target;
 		const taskId = target.value;
-		if (target.classList.contains('complete')) {
-			console.log('complete: ' + taskId );
-		// disable complete button and add completed styles to task 
-		let element = document.getElementById('#task' + taskId); 
+		if (target.classList.contains('complete')) {	
+			
+			let element = document.getElementById('#task' + taskId); 
+
+			element.classList.add('completedTask');
 
 			const updatedTask = {
 				id: taskId, 
@@ -91,14 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (target.classList.contains('delete')) {
 			console.log( 'delete: ' + taskId );
-
-			// Hide the element first 
-
-/*			const deletedTask = {
-				id: taskId, 
-				task: document.getElementById('#task' + taskId).textContent.trim(),
-				completed: true
-			};*/
 
 
 			fetch('http://localhost:3000/tasks/' + taskId, {
