@@ -7,9 +7,22 @@
 }
 
 html {
-	background: #333;
-	color: #eee;
+	background: var(--bg-color);
+	color: var(--color);
+}
 
+span{
+	font-weight: 900;
+}
+
+.pink {
+	color: var(--pink);
+}
+.red {
+	color: var(--red);
+}
+.orange {
+	color: var(--orange);
 }
 
 body {
@@ -32,6 +45,14 @@ h1 {
 
 li {
 	list-style: none;
+}
+
+input[type='text'], input[name='addTask']:focus {
+	border-radius: .2em;
+	padding: .4em 1em;
+	border: none;
+	background: var(--color);
+	color: var(--bg-color);
 }
 
 input.delete{
