@@ -1,4 +1,4 @@
-Certainly! Here are five examples of exercises or small projects to undertake when starting with Node.js:
+Here are five examples of exercises or small projects to undertake when starting with Node.js:
 
 1. **Basic Web Server:**
    - **Exercise:** Create a simple web server using the built-in `http` module.
