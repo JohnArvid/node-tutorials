@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		fetch('http://localhost:3000/tasks')
 			.then(response => response.json())
 			.then(tasks => {
+				// should definately be rewritten not using innerhtml
 				todoList.innerHTML = '';
 
 				tasks.forEach(task =>{
