@@ -1,6 +1,6 @@
-mr face man	waffle iron	80	2
-mr face man	blender	200	1
-mr face man	knife	10	4
-ms butt girl	waffle iron 80 1
-ms butt girl	knife	10	2
-ms butt girl	pot	20	3
+mr chef man	waffle iron	80	2
+mr chef man	blender	200	1
+mr chef man	knife	10	4
+ms cook girl	waffle iron 80 1
+ms cook girl	knife	10	2
+ms cook girl	pot	20	3
