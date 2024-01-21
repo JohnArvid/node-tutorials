@@ -1,7 +1,7 @@
 // Require express, body-parser and cors
-import express from 'express';
-import { json } from 'body-parser';
-import cors from 'cors';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
@@ -10,7 +10,8 @@ const PORT = 3000;
 // Middleware for CORS
 app.use(cors());
 // Middlerware to parse JSON requests
-app.use(json());
+// app.use(json());
+app.use(bodyParser.json());
 
 
 // Todo list data (in-memory)
