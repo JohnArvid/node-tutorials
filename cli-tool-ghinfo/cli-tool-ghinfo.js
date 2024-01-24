@@ -18,9 +18,12 @@ const apiUrl = `https://api.github.com/users/${user}`;
 axios
   .get(apiUrl)
   .then((response)=> {
-
+    userData = response.data;
+    console.log('User information:');
+    console.log(`Username: ${userData.login}`);
+    console.log(JSON.stringify(userData, null, 2));
   })
   .catch((error) => {
-      
+      console.log(`Error fetching: ${error.message}`);
   });
 
