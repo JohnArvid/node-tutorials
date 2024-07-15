@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						type='checkbox' 
 						class='complete' 
 						value=${task.id}>
-						${task.task}
+						<span>${task.task}</span>
 						<input type='checkbox' class='delete' value=${task.id}>
 					</div>`;
 					//console.log(tasks);
