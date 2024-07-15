@@ -1,22 +1,16 @@
 // Import the 'http' module
-const http = require('http');
-const h1text = 'Hello, out there!';
-const para = '<p>This is a paragraph</p>';
-
+import { createServer } from 'http';
 
 // Create an HTTP server
-const server = http.createServer((req, res) => {
+const server = createServer((req, res) => {
 	// Set the response header
 	res.writeHead(200, {'Content-Type': 'text/html'});
 
 	// Send the response
-	res.end(`
-		<html>
-			<body>
-				<h1>${h1text}</h1>
-				${para}
-			</body>
-		</html>\n`);
+	res.end(JSON.stringify({
+		header: 'Hello, out there!',
+		paragraph: 'This is a paragraph'	
+	}));
 
 });
 
