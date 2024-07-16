@@ -1,7 +1,7 @@
 // Import the 'http' module
-import { createServer } from 'http';
-import { readFile } from 'fs';
-import { path } from 'path';
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
 let jsonResponse = JSON.stringify({
   header: 'Hello, out there!',
@@ -13,19 +13,19 @@ let htmlStringResponse = `<html><head></head><body><h1>Hello world!</h1></body><
 const filePath = path.join(__dirname, 'index.html');
 
 // Create an HTTP server
-const server = createServer((req, res) => {
-	// Read the HTML file
-	readFile(filePath, (err, data) => {
-		if(err){
-			res.writeHead(500, {'Content-Type': 'plain text'})
-			res.end('Internal server error')
-			return
-		}
-		// Set the response header
-		res.writeHead(200, { 'Content-Type': 'text/html' });
-		// Send the response
-		res.end(data);
-	})
+const server = http.createServer((req, res) => {
+  // Read the HTML file
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      res.writeHead(500, { 'Content-Type': 'plain text' });
+      res.end('Internal server error');
+      return;
+    }
+    // Set the response header
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    // Send the response
+    res.end(data);
+  });
 });
 
 // Set the server to listen on port 3000
