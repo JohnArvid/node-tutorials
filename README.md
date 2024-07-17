@@ -3,10 +3,14 @@ A bunch of more or less free form tutorial/practice projects to get comfortable 
 
 ## http-server
 Very basic server. Basically hello world...
-Getting some more xp with node+esm. The __dirname problem. Why core modules _should_ be imported with `node:` prefix.
-Learning to read a file from disk and use in server response. Emitting events with events.EventEmitter. 
+
 ### Learnings:
-Not much. Should be expanded. Using node as backend wo express. 
+Using node as backend wo express. 
+Getting some more xp with node esm. The __dirname problem. 
+Why core modules _should_ be imported with `node:` prefix.
+Reading a file from disk and use in server response. 
+Emitting events with events.EventEmitter. 
+
 ## dothis-api
 First and foremost a rest api for a to do list. Added front end and styles. 
 ### Learnings:
