@@ -1,7 +1,11 @@
 // Import the 'http' module
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import { createServer } from 'node:http';
+import { readFile } from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 let jsonResponse = JSON.stringify({
   header: 'Hello, out there!',
@@ -13,9 +17,9 @@ let htmlStringResponse = `<html><head></head><body><h1>Hello world!</h1></body><
 const filePath = path.join(__dirname, 'index.html');
 
 // Create an HTTP server
-const server = http.createServer((req, res) => {
+const server = createServer((req, res) => {
   // Read the HTML file
-  fs.readFile(filePath, (err, data) => {
+  readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(500, { 'Content-Type': 'plain text' });
       res.end('Internal server error');
