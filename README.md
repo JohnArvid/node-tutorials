@@ -21,5 +21,7 @@ First and foremost a rest api for a to do list. Added front end and styles.
 ## cli-tool-ghinfo
 ## chat-app 
 ## file-upload
-## run-in-cli
 ## weather-app
+
+## run-in-cli
+throw away playground project. 

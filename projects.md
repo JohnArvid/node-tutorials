@@ -1,3 +1,4 @@
+## Node projects
 1. **Basic Web Server:**
    - **Exercise:** Create a simple web server using the built-in `http` module.
    - **Details:** Respond to HTTP requests with "Hello, World!" or create a basic HTML page.
@@ -17,5 +18,3 @@
 5. **Weather App:**
    - **Exercise:** Create a weather application that fetches data from a weather API.
    - **Details:** Use the `axios` library to make HTTP requests and display weather information.
-
-These exercises cover various aspects of Node.js, including creating a basic server, handling HTTP requests, working with file uploads, implementing real-time communication, and making API requests. They provide a hands-on approach to learning key concepts and building practical skills with Node.js.
